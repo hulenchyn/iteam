@@ -1,0 +1,13 @@
+<div class="container">
+	<section>
+		<!-- <div *ngIf="counter"> {{counter}} </div> -->
+		<div>
+			{{hoursDisplay ? hoursDisplay : '00'}} : {{(minutesDisplay) && (minutesDisplay <= 59) ? minutesDisplay : '00'}} : {{(secondsDisplay) && (secondsDisplay <= 59) ? secondsDisplay : '00'}} <br/>
+		</div>
+	</section>
+	<section class="timer-button-container">
+		<button [disabled]="stopped" class="timer-button" (click)="startStopTimer()">{{startText}}</button>
+		<button appDebounceClick (debounceClick)="pauseResumeTimer()" [debounceTime]="300" [disabled]="stopped" class="timer-button">{{waitText}}</button>
+		<button class="timer-button" (click)="resetTimer()">Reset</button>
+	</section>
+</div>
